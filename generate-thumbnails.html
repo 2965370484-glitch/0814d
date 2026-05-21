@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>视频封面生成器</title>
+<style>
+  body { font-family: "Microsoft YaHei",sans-serif; background: #0a0a0f; color: #e0e0e0; padding: 24px; max-width: 900px; margin: 0 auto; }
+  h1 { color: #a78bfa; margin-bottom: 8px; }
+  p { color: #a0a0b0; margin-bottom: 24px; }
+  .video-item { background: #1a1a28; border: 1px solid #2a2a3a; border-radius: 12px; padding: 16px; margin-bottom: 12px; display: flex; align-items: center; gap: 16px; }
+  .video-item video { width: 200px; height: 112px; object-fit: cover; border-radius: 6px; background: #000; }
+  .video-item canvas { width: 200px; height: 112px; border-radius: 6px; display: none; }
+  .video-item .info { flex: 1; }
+  .video-item .info h3 { font-size: 0.9rem; margin-bottom: 4px; }
+  .video-item .info span { font-size: 0.75rem; color: #a0a0b0; }
+  button { padding: 8px 20px; border-radius: 100px; border: 1px solid #6c5ce7; background: #6c5ce7; color: #fff; cursor: pointer; font-size: 0.8rem; white-space: nowrap; transition: 0.2s; }
+  button:hover { background: #7c6cf7; }
+  button.download { background: transparent; border-color: #f0c060; color: #f0c060; }
+  button.download:hover { background: rgba(240,192,96,0.1); }
+  .status { font-size: 0.75rem; color: #4caf50; }
+  .instructions { background: rgba(108,92,231,0.1); border: 1px solid rgba(108,92,231,0.2); border-radius: 8px; padding: 16px; margin-bottom: 24px; font-size: 0.85rem; line-height: 1.8; }
+  .instructions strong { color: #a78bfa; }
+</style>
+</head>
+<body>
+
+<h1>&#127912; 视频封面图生成器</h1>
+<div class="instructions">
+  <strong>使用方法：</strong><br>
+  1. 点击每行末尾的 <strong>"生成封面"</strong> 按钮，自动截取视频第2秒的画面<br>
+  2. 效果满意后点击 <strong>"下载封面"</strong> 保存为 JPG 图片<br>
+  3. 将下载的封面图放入 <code>assets/thumbnails/</code> 文件夹<br>
+  4. 文件名格式：<code>视频名_thumb.jpg</code>
+</div>
+
+<div id="videoList"></div>
+
+<script>
+// Find all video files in the project
+const videoPaths = [];
+
+// Scan through the data structure to find all videos
+function collectVideos() {
+  const seen = new Set();
+  const videos = [];
+
+  function addVideo(src, title) {
+    const key = src;
+    if (!seen.has(key) && src && src.endsWith('.mp4')) {
+      seen.add(key);
+      videos.push({ src: src, title: title });
+    }
+  }
+
+  // Hard-code known video paths from our portfolio
+  const knownVideos = [
+    // Main videos
+    'assets/videos/竹业漫剪.mp4',
+    'assets/videos/狐妖漫剪.mp4',
+    'assets/videos/狐妖竹业漫剪.mp4',
+    'assets/videos/世界之外混剪.mp4',
+    'assets/videos/游戏切片.mp4',
+    'assets/videos/真人舞台切片.mp4',
+    'assets/videos/大美河北宣传片.mp4',
+    // Marketing
+    'assets/videos/世外营销.mp4',
+    'assets/videos/世外营销2.mp4',
+    'assets/videos/世外营销3.mp4',
+    'assets/videos/世外营销4.mp4',
+    'assets/videos/世外营销5.mp4',
+    'assets/videos/世外营销6.mp4',
+    'assets/videos/软件推广.mp4',
+    'assets/videos/软件推广2.mp4',
+    'assets/videos/软件推广3.mp4',
+    'assets/videos/bw合作推广.mp4',
+    // Intern videos
+    'assets/videos/intern/开场5.mp4',
+    'assets/videos/intern/1月12日 (2)(1) (1) (1).mp4',
+    'assets/videos/intern/1月13日 (1) (1).mp4',
+    'assets/videos/intern/3月4日(1).mp4',
+    'assets/videos/intern/3月16日 (5).mp4',
+    'assets/videos/intern/3月16日 (6).mp4',
+    'assets/videos/intern/4月9日.mp4',
+    'assets/videos/intern/4月10日(1).mp4',
+    'assets/videos/intern/4月17日(2).mp4',
+    'assets/videos/intern/专辑封面挑战 (1).mp4',
+    'assets/videos/intern/佛子66.mp4',
+    'assets/videos/intern/哈喽哈喽.mp4',
+    'assets/videos/intern/我对你何止半分真心.mp4',
+    'assets/videos/intern/耶咦4 (1).mp4',
+    'assets/videos/intern/镜头一拉.mp4',
+    'assets/videos/intern/1087487388 (1).mp4',
+  ];
+
+  knownVideos.forEach(function(path) {
+    const name = path.split('/').pop().replace('.mp4', '');
+    videos.push({ src: path, title: name });
+  });
+
+  return videos;
+}
+
+const videos = collectVideos();
+
+const listEl = document.getElementById('videoList');
+listEl.innerHTML = videos.map(function(v, i) {
+  return `
+    <div class="video-item" id="item-${i}">
+      <video id="vid-${i}" src="${v.src}" preload="metadata" muted crossorigin="anonymous"></video>
+      <canvas id="canvas-${i}"></canvas>
+      <div class="info">
+        <h3>${v.title}</h3>
+        <span>${v.src}</span>
+        <div class="status" id="status-${i}"></div>
+      </div>
+      <button onclick="captureFrame(${i})">生成封面</button>
+      <button class="download" id="dl-${i}" onclick="downloadThumb(${i})" disabled>下载封面</button>
+    </div>`;
+}).join('');
+
+// Wait for all videos to load metadata
+Promise.all(videos.map(function(v, i) {
+  return new Promise(function(resolve) {
+    const vid = document.getElementById('vid-' + i);
+    vid.addEventListener('loadedmetadata', function() {
+      resolve();
+    });
+    vid.addEventListener('error', function() {
+      // File might not exist, skip
+      document.getElementById('status-' + i).textContent = '文件不存在';
+      document.getElementById('status-' + i).style.color = '#f44336';
+      resolve();
+    });
+    // Timeout after 5 seconds
+    setTimeout(resolve, 5000);
+  });
+})).then(function() {
+  document.querySelectorAll('.video-item').forEach(function(item) {
+    item.querySelector('button:first-of-type').textContent = '生成封面';
+  });
+});
+
+const capturedFrames = {};
+
+function captureFrame(index) {
+  const vid = document.getElementById('vid-' + index);
+  const canvas = document.getElementById('canvas-' + index);
+  const status = document.getElementById('status-' + index);
+  const dlBtn = document.getElementById('dl-' + index);
+
+  if (vid.readyState < 2) {
+    status.textContent = '视频未加载完成';
+    status.style.color = '#ff9800';
+    return;
+  }
+
+  // Seek to 2 seconds or 20% of duration
+  const seekTime = Math.min(2, vid.duration * 0.2);
+  vid.currentTime = seekTime;
+
+  vid.addEventListener('seeked', function handler() {
+    vid.removeEventListener('seeked', handler);
+    canvas.width = vid.videoWidth || 320;
+    canvas.height = vid.videoHeight || 180;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(vid, 0, 0, canvas.width, canvas.height);
+
+    canvas.style.display = 'block';
+    vid.style.display = 'none';
+    dlBtn.disabled = false;
+    status.textContent = '封面已生成 (' + canvas.width + 'x' + canvas.height + ')';
+    status.style.color = '#4caf50';
+
+    capturedFrames[index] = canvas.toDataURL('image/jpeg', 0.85);
+  }, { once: true });
+}
+
+function downloadThumb(index) {
+  const dataUrl = capturedFrames[index];
+  if (!dataUrl) return;
+
+  const a = document.createElement('a');
+  a.href = dataUrl;
+  const vid = document.getElementById('vid-' + index);
+  const name = (vid ? vid.src.split('/').pop().replace('.mp4', '') : 'thumb') + '_thumb.jpg';
+  a.download = name;
+  a.click();
+
+  const status = document.getElementById('status-' + index);
+  status.textContent = '已下载: ' + name;
+  status.style.color = '#4caf50';
+}
+</script>
+</body>
+</html>
