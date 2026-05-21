@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>作品集 | 分类详情</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back-btn" id="backLink">
+      <span class="back-arrow">&#8592;</span>
+      <span>返回主页</span>
+    </a>
+    <span id="categoryNavTitle" style="color:var(--text-secondary);font-size:0.9rem;letter-spacing:2px;"></span>
+  </div>
+</nav>
+
+<section class="section" style="padding-top:120px;">
+  <div class="section-inner">
+    <div id="categoryHeader"></div>
+    <div id="categoryContent"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2026 张凯丽 | 作品集. All rights reserved.</p>
+</footer>
+
+<!-- Lightbox Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-content" id="modalContent">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <button class="modal-nav modal-prev" id="modalPrev">&#10094;</button>
+    <button class="modal-nav modal-next" id="modalNext">&#10095;</button>
+    <div id="modalMedia"></div>
+    <div class="modal-info"><h3 id="modalTitle"></h3><p id="modalDesc"></p></div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/category.js"></script>
+</body>
+</html>
