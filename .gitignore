@@ -1,0 +1,14 @@
+# Large videos (>100MB) - need external hosting
+assets/videos/intern/3月31日(3).mp4
+assets/videos/intern/emijo.mp4
+
+# Files very close to 100MB limit (risk of push failure)
+assets/videos/intern/3月16日 (6).mp4
+
+# Micro films (too large for GitHub)
+assets/videos/勇气微电影.mp4
+assets/videos/心理微电影.mp4
+assets/videos/长缨.mp4
+
+# Oversized documents
+assets/docs/朋友圈T (2).docx
