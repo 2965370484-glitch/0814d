@@ -315,10 +315,15 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.82rem; letter-spacing: 1px; text-decoration: none;
   transition: var(--transition);
   background: rgba(108,92,231,0.1);
+  -webkit-tap-highlight-color: transparent; outline: none;
 }
 .nav-back-btn:hover {
   background: var(--accent); color: #fff;
   box-shadow: 0 0 20px var(--accent-glow);
+}
+.nav-back-btn:active {
+  background: var(--accent); color: #fff;
+  transform: scale(0.95);
 }
 .nav-back-btn .back-arrow { font-size: 1rem; transition: var(--transition); }
 .nav-back-btn:hover .back-arrow { transform: translateX(-2px); }
