@@ -207,24 +207,10 @@ function renderDocItem(item) {
     </a>`;
 }
 
-/* ========== Card hover: play video ========== */
-(function() {
-  document.addEventListener('mouseover', function(e) {
-    const card = e.target.closest('.cat-item-card');
-    if (!card) return;
-    const video = card.querySelector('video');
-    if (video) {
-      video.currentTime = 0;
-      video.play().catch(function() {});
-    }
-  });
-  document.addEventListener('mouseout', function(e) {
-    const card = e.target.closest('.cat-item-card');
-    if (!card) return;
-    const video = card.querySelector('video');
-    if (video) video.pause();
-  });
-})();
+/* ========== Card hover: disabled (Option A) ========== */
+/* Videos no longer autoplay on hover. Each card shows its first frame as a
+   static thumbnail; the full video loads and plays only when the card is
+   clicked (lightbox opens with controls). */
 
 /* ========== Lightbox with Gallery Navigation ========== */
 let galleryItems = [];
