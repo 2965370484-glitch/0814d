@@ -73,7 +73,8 @@ var galleryIdCounter = 0;
         }
       });
     } else {
-      backLink.href = 'index.html#works';
+      // 不写死跳到 #works；回到首页后由首页按记录的位置复原
+      backLink.href = 'index.html';
     }
   }
 
@@ -98,7 +99,7 @@ var galleryIdCounter = 0;
   if (cat.groups) {
     content.innerHTML = cat.groups.map(function(group) {
       return `
-        <div class="cat-group">
+        <div class="cat-group reveal-up">
           <h3 class="cat-group-label">${group.label}</h3>
           <div class="cat-item-grid">
             ${group.items.map(function(item, idx) {
@@ -143,7 +144,7 @@ function renderItem(item, id) {
 
   if (item.type === 'video') {
     return `
-      <div class="cat-item-card" data-lightbox="video" data-src="${item.src}" data-title="${item.title}" data-desc="${item.desc}" data-group="${item.group || ''}" data-id="${id}">
+      <div class="cat-item-card reveal" data-lightbox="video" data-src="${item.src}" data-title="${item.title}" data-desc="${item.desc}" data-group="${item.group || ''}" data-id="${id}">
         <div class="cat-item-thumb">
           <video src="${item.src}" preload="metadata" muted loop playsinline></video>
         </div>
@@ -156,7 +157,7 @@ function renderItem(item, id) {
 
   if (item.type === 'image') {
     return `
-      <div class="cat-item-card" data-lightbox="image" data-src="${item.src}" data-title="${item.title}" data-desc="${item.desc}" data-group="${item.group || ''}" data-id="${id}">
+      <div class="cat-item-card reveal" data-lightbox="image" data-src="${item.src}" data-title="${item.title}" data-desc="${item.desc}" data-group="${item.group || ''}" data-id="${id}">
         <div class="cat-item-thumb">
           <img src="${item.src}" alt="${item.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=thumb-icon>&#127912;</span>';">
         </div>
@@ -169,7 +170,7 @@ function renderItem(item, id) {
 
   if (item.type === 'doc') {
     return `
-      <a class="cat-doc-card" href="${item.src}" download>
+      <a class="cat-doc-card reveal" href="${item.src}" download>
         <div class="doc-icon">${item.icon || '&#128196;'}</div>
         <h4>${item.title}</h4>
         <p>${item.desc}</p>
@@ -181,7 +182,7 @@ function renderItem(item, id) {
     const gid = 'gallery-' + (++galleryIdCounter);
     galleryRegistry[gid] = { images: item.gallery, viewMode: item.viewMode || 'slideshow' };
     return `
-      <div class="cat-item-card cat-item-gallery" data-lightbox="gallery" data-gallery-id="${gid}" data-title="${item.title}" data-desc="${item.desc}">
+      <div class="cat-item-card cat-item-gallery reveal" data-lightbox="gallery" data-gallery-id="${gid}" data-title="${item.title}" data-desc="${item.desc}">
         <div class="cat-item-thumb">
           <img src="${item.thumb || item.gallery[0].src}" alt="${item.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
         </div>
@@ -198,7 +199,7 @@ function renderItem(item, id) {
 
 function renderDocItem(item) {
   return `
-    <a class="cat-doc-card" href="${item.src}" download>
+    <a class="cat-doc-card reveal" href="${item.src}" download>
       <div class="doc-icon">${item.icon || '&#128196;'}</div>
       <h4>${item.title}</h4>
       <p>${item.desc}</p>
