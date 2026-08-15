@@ -1,162 +1,97 @@
-/* ========== Portfolio Data ========== */
+/* ========== Portfolio Data (v2 预览版) ========== */
 const portfolioData = {
-  video: {
-    id: 'video',
-    name: '视频剪辑',
-    icon: '🎬',
-    desc: '混剪切片、微电影、宣传片——用镜头语言传达创意与情感。',
-    featured: {
-      title: '狐妖小红娘漫剪',
-      desc: '单条播放量 30万+，独立完成脚本、精剪、配乐全流程',
-      type: 'video',
-      src: 'assets/videos/狐妖漫剪.mp4',
-      thumb: ''
-    },
-    groups: [
-      {
-        label: '混剪 & 切片',
-        items: [
-          { title: '狐妖漫剪', desc: '单条播放30万+ · 动漫推广向剪辑全案', src: 'assets/videos/狐妖漫剪.mp4', type: 'video' },
-          { title: '竹业漫剪', desc: '动漫混剪创作', src: 'assets/videos/竹业漫剪.mp4', type: 'video' },
-          { title: '狐妖竹业漫剪', desc: '动漫混剪创作', src: 'assets/videos/狐妖竹业漫剪.mp4', type: 'video' },
-          { title: '世界之外混剪', desc: '游戏混剪创作', src: 'assets/videos/世界之外混剪.mp4', type: 'video' },
-          { title: '游戏切片', desc: '游戏精彩切片', src: 'assets/videos/游戏切片.mp4', type: 'video' },
-          { title: '真人舞台切片', desc: '舞台表演切片', src: 'assets/videos/真人舞台切片.mp4', type: 'video' }
-        ]
-      },
-      {
-        label: '微电影',
-        items: [
-          { title: '《勇气》微电影', desc: '原创微电影 · 导演/剪辑/后期 · 365MB', src: '', type: 'placeholder', size: '365 MB' },
-          { title: '心理微电影', desc: '心理健康主题 · 导演/剪辑 · 787MB', src: '', type: 'placeholder', size: '787 MB' },
-          { title: '《长缨》微电影', desc: '原创微电影 · 导演/剪辑/后期 · 1.2GB', src: '', type: 'placeholder', size: '1.2 GB' }
-        ]
-      },
-      {
-        label: '地区宣传片',
-        items: [
-          { title: '《大美河北》宣传片', desc: '地区形象宣传片', src: 'assets/videos/大美河北宣传片.mp4', type: 'video' }
-        ]
-      }
-    ]
-  },
-
-  marketing: {
-    id: 'marketing',
-    name: '营销推广',
-    icon: '📈',
-    desc: '游戏营销与品牌推广案例，单平台浏览量突破 600万+。',
+  /* 1. 游戏运营 · 内容推广（核心卖点，前置） */
+  gameops: {
+    id: 'gameops',
+    name: '游戏运营 · 内容推广',
+    icon: '🎮',
+    desc: '游戏内容运营与整合营销：从动漫漫剪到游戏宣发，单平台浏览量突破 600万+。',
     featured: {
       title: '网易游戏线上推广',
       desc: '单平台浏览量 600万+，独立负责宣推全流程',
       type: 'image',
-      src: 'assets/images/marketing/游戏营销数据1.png',
-      thumb: 'assets/images/marketing/游戏营销数据1.png'
+      src: 'assets/images/marketing/m1.png',
+      thumb: ''
     },
     groups: [
       {
-        label: '游戏营销推广',
+        label: '动漫漫剪 & 游戏切片',
         items: [
-          { title: '世外营销', desc: '游戏营销短视频', src: 'assets/videos/世外营销.mp4', type: 'video' },
-          { title: '世外营销 2', desc: '游戏营销短视频', src: 'assets/videos/世外营销2.mp4', type: 'video' },
-          { title: '世外营销 3', desc: '游戏营销短视频', src: 'assets/videos/世外营销3.mp4', type: 'video' },
-          { title: '世外营销 4', desc: '游戏营销短视频', src: 'assets/videos/世外营销4.mp4', type: 'video' },
-          { title: '世外营销 5', desc: '游戏营销短视频', src: 'assets/videos/世外营销5.mp4', type: 'video' },
-          { title: '世外营销 6', desc: '游戏营销短视频', src: 'assets/videos/世外营销6.mp4', type: 'video' }
+          { title: '狐妖小红娘漫剪', desc: '单条播放 30万+ · 动漫推广向剪辑全案', src: 'https://zhangkaili.xyz/assets/videos/狐妖漫剪.mp4', type: 'video' },
+          { title: '竹业漫剪', desc: '动漫 IP 混剪创作', src: 'https://zhangkaili.xyz/assets/videos/竹业漫剪.mp4', type: 'video' },
+          { title: '世界之外混剪', desc: '游戏向混剪创作', src: 'https://zhangkaili.xyz/assets/videos/世界之外混剪.mp4', type: 'video' },
+          { title: '游戏切片', desc: '游戏高光切片', src: 'https://zhangkaili.xyz/assets/videos/游戏切片.mp4', type: 'video' },
+          { title: '真人舞台切片', desc: '舞台表演切片', src: 'https://zhangkaili.xyz/assets/videos/真人舞台切片.mp4', type: 'video' }
         ]
       },
       {
-        label: '软件 & 活动推广',
+        label: '游戏营销短视频',
         items: [
-          { title: '软件推广', desc: '软件产品推广视频', src: 'assets/videos/软件推广.mp4', type: 'video' },
-          { title: '软件推广 2', desc: '软件产品推广视频', src: 'assets/videos/软件推广2.mp4', type: 'video' },
-          { title: '软件推广 3', desc: '软件产品推广视频', src: 'assets/videos/软件推广3.mp4', type: 'video' },
-          { title: 'BW 合作推广', desc: 'BilibiliWorld 品牌合作推广', src: 'assets/videos/bw合作推广.mp4', type: 'video' }
+          { title: '世外营销', desc: '游戏营销短视频', src: 'https://zhangkaili.xyz/assets/videos/世外营销.mp4', type: 'video' },
+          { title: '世外营销 2', desc: '游戏营销短视频', src: 'https://zhangkaili.xyz/assets/videos/世外营销2.mp4', type: 'video' },
+          { title: '世外营销 3', desc: '游戏营销短视频', src: 'https://zhangkaili.xyz/assets/videos/世外营销3.mp4', type: 'video' },
+          { title: 'BW 合作推广', desc: 'BilibiliWorld 品牌合作推广', src: 'https://zhangkaili.xyz/assets/videos/bw合作推广.mp4', type: 'video' }
         ]
       },
       {
         label: '营销数据分析',
         items: [
-          { title: '游戏营销数据总览', desc: '含15张营销数据截图，点击翻阅', type: 'gallery', thumb: 'assets/images/marketing/游戏营销数据1.png',
+          { title: '游戏营销数据总览', desc: '含15张营销数据截图，点击翻阅', type: 'gallery', thumb: 'assets/images/marketing/m1.png',
             gallery: [
-              { title: '游戏营销数据 1', src: 'assets/images/marketing/游戏营销数据1.png' },
-              { title: '游戏营销数据 2', src: 'assets/images/marketing/游戏营销数据2.png' },
-              { title: '游戏营销数据 3', src: 'assets/images/marketing/游戏营销数据3.png' },
-              { title: '游戏营销数据 4', src: 'assets/images/marketing/游戏营销数据4.png' },
-              { title: '游戏营销数据 5', src: 'assets/images/marketing/游戏营销数据5.png' },
-              { title: '游戏营销数据 6', src: 'assets/images/marketing/游戏营销数据6.png' },
-              { title: '游戏营销数据 7', src: 'assets/images/marketing/游戏营销数据7.png' },
-              { title: '游戏营销数据 8', src: 'assets/images/marketing/游戏营销数据8.png' },
-              { title: '游戏营销数据 9', src: 'assets/images/marketing/游戏营销数据9.png' },
-              { title: '游戏营销数据 10', src: 'assets/images/marketing/游戏营销数据10.png' },
-              { title: '游戏营销数据 11', src: 'assets/images/marketing/游戏营销数据11.png' },
-              { title: '游戏营销数据 12', src: 'assets/images/marketing/游戏营销数据12.png' },
-              { title: '游戏营销数据 13', src: 'assets/images/marketing/游戏营销数据13.png' },
-              { title: '游戏营销数据 14', src: 'assets/images/marketing/游戏营销数据14.png' },
-              { title: '游戏营销数据 15', src: 'assets/images/marketing/游戏营销数据15.png' }
+              { title: '游戏营销数据 1', src: 'assets/images/marketing/m1.png' },
+              { title: '游戏营销数据 2', src: 'assets/images/marketing/m2.png' },
+              { title: '游戏营销数据 3', src: 'assets/images/marketing/m3.png' },
+              { title: '游戏营销数据 4', src: 'assets/images/marketing/m4.png' },
+              { title: '游戏营销数据 5', src: 'assets/images/marketing/m5.png' },
+              { title: '游戏营销数据 6', src: 'assets/images/marketing/m6.png' },
+              { title: '游戏营销数据 7', src: 'assets/images/marketing/m7.png' },
+              { title: '游戏营销数据 8', src: 'assets/images/marketing/m8.png' },
+              { title: '游戏营销数据 9', src: 'assets/images/marketing/m9.png' },
+              { title: '游戏营销数据 10', src: 'assets/images/marketing/m10.png' },
+              { title: '游戏营销数据 11', src: 'assets/images/marketing/m11.png' },
+              { title: '游戏营销数据 12', src: 'assets/images/marketing/m12.png' },
+              { title: '游戏营销数据 13', src: 'assets/images/marketing/m13.png' },
+              { title: '游戏营销数据 14', src: 'assets/images/marketing/m14.png' },
+              { title: '游戏营销数据 15', src: 'assets/images/marketing/m15.png' }
             ]
           },
-          { title: 'BW活动推广数据', desc: '活动推广数据', src: 'assets/images/marketing/bw活动推广数据.png', type: 'image' },
-          { title: '狐妖漫剪数据', desc: '漫剪推广数据', src: 'assets/images/marketing/狐妖漫剪数据.jpg', type: 'image' },
-          { title: '软件推广数据', desc: '软件推广数据', src: 'assets/images/marketing/软件推广数据.png', type: 'image' }
+          { title: 'BW活动推广数据', desc: '活动推广数据', src: 'assets/images/marketing/mbw.png', type: 'image' },
+          { title: '狐妖漫剪数据', desc: '漫剪推广数据', src: 'assets/images/marketing/mhy.png', type: 'image' },
+          { title: '软件推广数据', desc: '软件推广数据', src: 'assets/images/marketing/msoft.png', type: 'image' }
         ]
       }
     ]
   },
 
-  planning: {
-    id: 'planning',
-    name: '策划方案',
-    icon: '📋',
-    desc: '综艺策划、短视频方案、产品模型解析——从策略到落地的完整思考。',
-    featured: {
-      title: '《再见 朋友》综艺策划案',
-      desc: '完整综艺节目策划方案 · 33MB PPTX',
-      type: 'doc',
-      src: 'assets/docs/《再见 朋友》策划案22.pptx',
-      thumb: ''
-    },
-    items: [
-      { title: '《再见 朋友》策划案', desc: '综艺节目完整策划方案 · 33MB', src: 'assets/docs/《再见 朋友》策划案22.pptx', type: 'doc', icon: '📚' },
-      { title: '网络剧策划《偷命》', desc: '网络剧完整策划方案 · 14MB', src: 'assets/docs/网络剧策划《偷命》.pptx', type: 'doc', icon: '🎬' },
-      { title: '《误入历史名场面》', desc: '短视频系列策划方案 · 22MB', src: 'assets/docs/《误入历史名场面》短视频策划案.pptx', type: 'doc', icon: '📹' },
-      { title: 'EDCC 模型', desc: '产品分析模型文档 · 1MB', src: 'assets/docs/EDCC模型.docx', type: 'doc', icon: '📊' },
-      { title: '无尽冬日产品模型解析', desc: '游戏产品深度分析', src: 'assets/docs/无尽冬日产品模型解析.docx', type: 'doc', icon: '🎮' },
-      { title: '圣诞节微博策划案', desc: '社交媒体活动策划', src: 'assets/docs/圣诞节微博策划案.docx', type: 'doc', icon: '🎄' },
-      { title: '四月社招海报（整活）', desc: '创意招聘海报设计 · 10MB', src: 'assets/docs/四月社招海报(整活）.docx', type: 'doc', icon: '🎨' },
-      { title: '愚人节活动', desc: '节日活动策划方案', src: 'assets/docs/愚人节活动.docx', type: 'doc', icon: '🎉' },
-      { title: '爆梗集结号', desc: '社交媒体内容策划', src: 'assets/docs/爆梗🍉集结号.docx', type: 'doc', icon: '🍉' }
-    ]
-  },
-
+  /* 2. 英雄游戏 · 创意运营实习（硬核经历，正确标注） */
   internship: {
     id: 'internship',
-    name: '实习成果',
+    name: '英雄游戏 · 创意运营实习',
     icon: '💼',
-    desc: '英雄游戏实习期间的海报设计、整合调研与视频创作。',
+    desc: '英雄游戏实习期间：雇主品牌推广、社群内容策划、海报设计与整合调研，产出 50+ 条内容。',
     featured: {
       title: '实习海报设计合集',
-      desc: '10张创意海报 + 整合调研 + 18支视频作品',
+      desc: '10张创意海报 + 整合调研 + 实习视频作品',
       type: 'image',
-      src: 'assets/images/posters/机车.jpg',
-      thumb: 'assets/images/posters/机车.jpg'
+      src: 'assets/images/posters/p8.jpg',
+      thumb: ''
     },
     groups: [
       {
         label: '海报设计',
         items: [
-          { title: '实习海报设计合集', desc: '含10张创意海报作品，点击翻阅', type: 'gallery', thumb: 'assets/images/posters/机车.jpg', viewMode: 'grid',
+          { title: '实习海报设计合集', desc: '含10张创意海报作品，点击翻阅', type: 'gallery', thumb: 'assets/images/posters/p8.jpg', viewMode: 'grid',
             gallery: [
-              { title: '机车海报', src: 'assets/images/posters/机车.jpg' },
-              { title: '放风筝', src: 'assets/images/posters/放风筝66.jpg' },
-              { title: '忧郁', src: 'assets/images/posters/忧郁.png' },
-              { title: '游戏图标动态效果', src: 'assets/images/posters/生成游戏图标环绕人物的动态效果图片.jpg' },
-              { title: '66抬头海报', src: 'assets/images/posters/66抬头.png' },
-              { title: '1280海报', src: 'assets/images/posters/1280X1280.PNG' },
-              { title: '1.3海报', src: 'assets/images/posters/1.3.jpg' },
-              { title: '2.2海报', src: 'assets/images/posters/2.2.jpg' },
-              { title: '3号海报', src: 'assets/images/posters/3.jpg' },
-              { title: '4号海报', src: 'assets/images/posters/4.jpg' }
+              { title: '机车海报', src: 'assets/images/posters/p8.jpg' },
+              { title: '放风筝', src: 'assets/images/posters/p1.jpg' },
+              { title: '忧郁', src: 'assets/images/posters/p10.png' },
+              { title: '游戏图标动态效果', src: 'assets/images/posters/p7.jpg' },
+              { title: '66抬头海报', src: 'assets/images/posters/p6.png' },
+              { title: '1280海报', src: 'assets/images/posters/p2.png' },
+              { title: '1.3海报', src: 'assets/images/posters/1.pp5.jpg' },
+              { title: '2.2海报', src: 'assets/images/posters/ppp5.jpg' },
+              { title: '3号海报', src: 'assets/images/posters/pp5.jpg' },
+              { title: '4号海报', src: 'assets/images/posters/p5.jpg' }
             ]
           }
         ]
@@ -164,75 +99,91 @@ const portfolioData = {
       {
         label: '整合调研',
         items: [
-          { title: '66周边衍生', desc: 'IP周边衍生设计', src: 'assets/images/research/66周边衍生.png', type: 'image' },
-          { title: '抽象大赛', desc: '活动设计', src: 'assets/images/research/抽象大赛 (2).png', type: 'image' },
-          { title: '雇主向帐号调研', desc: '用户调研分析', src: 'assets/images/research/雇主向帐号调研.png', type: 'image' },
-          { title: '四月社招海报（整活）', desc: '创意招聘海报 · 10MB', src: 'assets/docs/四月社招海报(整活）.docx', type: 'doc', icon: '📄' },
-          { title: '愚人节活动', desc: '节日活动策划', src: 'assets/docs/愚人节活动.docx', type: 'doc', icon: '📄' },
-          { title: '爆梗集结号', desc: '社交媒体内容策划', src: 'assets/docs/爆梗🍉集结号.docx', type: 'doc', icon: '📄' }
+          { title: '66周边衍生', desc: 'IP周边衍生设计', src: 'assets/images/research/r1.png', type: 'image' },
+          { title: '抽象大赛', desc: '活动设计', src: 'assets/images/research/r2.png', type: 'image' },
+          { title: '雇主向帐号调研', desc: '用户调研分析', src: 'assets/images/research/r3.png', type: 'image' },
+          { title: '四月社招海报（整活）', desc: '创意招聘海报 · 10MB', src: 'https://zhangkaili.xyz/assets/docs/四月社招海报(整活）.docx', type: 'doc', icon: '📄' },
+          { title: '愚人节活动', desc: '节日活动策划', src: 'https://zhangkaili.xyz/assets/docs/愚人节活动.docx', type: 'doc', icon: '📄' },
+          { title: '爆梗集结号', desc: '社交媒体内容策划', src: 'https://zhangkaili.xyz/assets/docs/爆梗🍉集结号.docx', type: 'doc', icon: '📄' }
         ]
       },
       {
         label: '实习视频作品',
         items: [
-          { title: '开场视频', desc: '实习期间视频作品', src: 'assets/videos/intern/开场5.mp4', type: 'video' },
-          { title: '1月12日作品', desc: '实习期间视频作品', src: 'assets/videos/intern/1月12日 (2)(1) (1) (1).mp4', type: 'video' },
-          { title: '1月13日作品', desc: '实习期间视频作品', src: 'assets/videos/intern/1月13日 (1) (1).mp4', type: 'video' },
-          { title: '3月4日作品', desc: '实习期间视频作品', src: 'assets/videos/intern/3月4日(1).mp4', type: 'video' },
-          { title: '3月16日作品 A', desc: '实习期间视频作品', src: 'assets/videos/intern/3月16日 (5).mp4', type: 'video' },
-          { title: '3月16日作品 B', desc: '实习期间视频作品', src: 'assets/videos/intern/3月16日 (6).mp4', type: 'video' },
-          { title: '4月9日作品', desc: '实习期间视频作品', src: 'assets/videos/intern/4月9日.mp4', type: 'video' },
-          { title: '4月10日作品', desc: '实习期间视频作品', src: 'assets/videos/intern/4月10日(1).mp4', type: 'video' },
-          { title: '4月17日作品', desc: '实习期间视频作品', src: 'assets/videos/intern/4月17日(2).mp4', type: 'video' },
-          { title: '专辑封面挑战', desc: '实习期间视频作品', src: 'assets/videos/intern/专辑封面挑战 (1).mp4', type: 'video' },
-          { title: '佛子66', desc: '实习期间视频作品', src: 'assets/videos/intern/佛子66.mp4', type: 'video' },
-          { title: '哈喽哈喽', desc: '实习期间视频作品', src: 'assets/videos/intern/哈喽哈喽.mp4', type: 'video' },
-          { title: '我对你何止半分真心', desc: '实习期间视频作品', src: 'assets/videos/intern/我对你何止半分真心.mp4', type: 'video' },
-          { title: '耶咦', desc: '实习期间视频作品', src: 'assets/videos/intern/耶咦4 (1).mp4', type: 'video' },
-          { title: '镜头一拉', desc: '实习期间视频作品', src: 'assets/videos/intern/镜头一拉.mp4', type: 'video' },
-          { title: '1087487388', desc: '实习期间视频作品', src: 'assets/videos/intern/1087487388 (1).mp4', type: 'video' }
+          { title: '开场视频', desc: '英雄游戏实习开场视频作品', src: 'assets/videos/intern/开场5.mp4', type: 'video' },
+          { title: '3月16日作品', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/3月16日 (5).mp4', type: 'video' },
+          { title: '1月12日作品', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/1月12日 (2)(1) (1) (1).mp4', type: 'video' },
+          { title: '4月9日作品', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/4月9日.mp4', type: 'video' },
+          { title: '4月10日作品', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/4月10日(1).mp4', type: 'video' },
+          { title: '专辑封面挑战', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/专辑封面挑战 (1).mp4', type: 'video' }
         ]
       }
     ]
   },
 
-  storyboard: {
-    id: 'storyboard',
-    name: '分镜头脚本',
-    icon: '🎞️',
-    desc: '原创分镜头设计，展现叙事能力与视觉想象力。',
+  /* 3. 策划方案（保留游戏/产品/活动相关） */
+  planning: {
+    id: 'planning',
+    name: '策划方案',
+    icon: '📋',
+    desc: '游戏产品分析、短视频方案与社交媒体活动策划——从策略到落地的完整思考。',
     featured: {
-      title: '分镜头脚本设计',
-      desc: '3张分镜头脚本图',
+      title: '《误入历史名场面》短视频策划',
+      desc: '短视频系列策划方案 · 22MB PPTX',
       type: 'image',
-      src: 'assets/images/storyboard/分镜头脚本1.png',
-      thumb: 'assets/images/storyboard/分镜头脚本1.png'
+      src: 'assets/images/covers/planning.png',
+      thumb: ''
     },
     items: [
-      { title: '分镜头脚本 1', desc: '原创分镜头设计', src: 'assets/images/storyboard/分镜头脚本1.png', type: 'image' },
-      { title: '分镜头脚本 2', desc: '原创分镜头设计', src: 'assets/images/storyboard/分镜头脚本2.png', type: 'image' },
-      { title: '分镜头脚本 3', desc: '原创分镜头设计', src: 'assets/images/storyboard/分镜头脚本3.png', type: 'image' }
+      { title: '《误入历史名场面》', desc: '短视频系列策划方案 · 22MB', src: 'https://zhangkaili.xyz/assets/docs/《误入历史名场面》短视频策划案.pptx', type: 'doc', icon: '📹' },
+      { title: 'EDCC 模型', desc: '产品分析模型文档 · 1MB', src: 'https://zhangkaili.xyz/assets/docs/EDCC模型.docx', type: 'doc', icon: '📊' },
+      { title: '无尽冬日产品模型解析', desc: '游戏产品深度分析', src: 'https://zhangkaili.xyz/assets/docs/无尽冬日产品模型解析.docx', type: 'doc', icon: '🎮' },
+      { title: '圣诞节微博策划案', desc: '社交媒体活动策划', src: 'https://zhangkaili.xyz/assets/docs/圣诞节微博策划案.docx', type: 'doc', icon: '🎄' },
+      { title: '四月社招海报（整活）', desc: '创意招聘海报设计 · 10MB', src: 'https://zhangkaili.xyz/assets/docs/四月社招海报(整活）.docx', type: 'doc', icon: '🎨' },
+      { title: '愚人节活动', desc: '节日活动策划方案', src: 'https://zhangkaili.xyz/assets/docs/愚人节活动.docx', type: 'doc', icon: '🎉' },
+      { title: '爆梗集结号', desc: '社交媒体内容策划', src: 'https://zhangkaili.xyz/assets/docs/爆梗🍉集结号.docx', type: 'doc', icon: '🍉' }
     ]
   },
 
-  script: {
-    id: 'script',
-    name: '小说剧本',
-    icon: '✍️',
-    desc: '原创小说与剧本创作，用文字构建世界。',
+  /* 4. 其他作品（弱相关，弱化收纳） */
+  others: {
+    id: 'others',
+    name: '其他作品',
+    icon: '✨',
+    desc: '分镜头脚本、小说剧本、综艺 / 网络剧策划等延伸创作。',
     featured: {
-      title: '小说剧本创作',
-      desc: '5页原创小说剧本',
+      title: '分镜头 & 小说剧本',
+      desc: '3张分镜头 + 5页小说剧本 + 综艺/网络剧策划',
       type: 'image',
-      src: 'assets/images/scripts/小说剧本1.jpg',
-      thumb: 'assets/images/scripts/小说剧本1.jpg'
+      src: 'assets/images/storyboard/s1.png',
+      thumb: ''
     },
-    items: [
-      { title: '小说剧本 1', desc: '原创小说剧本页', src: 'assets/images/scripts/小说剧本1.jpg', type: 'image' },
-      { title: '小说剧本 2', desc: '原创小说剧本页', src: 'assets/images/scripts/小说剧本2.jpg', type: 'image' },
-      { title: '小说剧本 3', desc: '原创小说剧本页', src: 'assets/images/scripts/小说剧本3.jpg', type: 'image' },
-      { title: '小说剧本 4', desc: '原创小说剧本页', src: 'assets/images/scripts/小说剧本4.jpg', type: 'image' },
-      { title: '小说剧本 5', desc: '原创小说剧本页', src: 'assets/images/scripts/小说剧本5.jpg', type: 'image' }
+    groups: [
+      {
+        label: '分镜头脚本',
+        items: [
+          { title: '分镜头脚本 1', desc: '原创分镜头设计', src: 'assets/images/storyboard/s1.png', type: 'image' },
+          { title: '分镜头脚本 2', desc: '原创分镜头设计', src: 'assets/images/storyboard/s2.png', type: 'image' },
+          { title: '分镜头脚本 3', desc: '原创分镜头设计', src: 'assets/images/storyboard/s3.png', type: 'image' }
+        ]
+      },
+      {
+        label: '小说剧本',
+        items: [
+          { title: '小说剧本 1', desc: '原创小说剧本页', src: 'assets/images/scripts/c1.jpg', type: 'image' },
+          { title: '小说剧本 2', desc: '原创小说剧本页', src: 'assets/images/scripts/c2.jpg', type: 'image' },
+          { title: '小说剧本 3', desc: '原创小说剧本页', src: 'assets/images/scripts/小说剧本pp5.jpg', type: 'image' },
+          { title: '小说剧本 4', desc: '原创小说剧本页', src: 'assets/images/scripts/小说剧本p5.jpg', type: 'image' },
+          { title: '小说剧本 5', desc: '原创小说剧本页', src: 'assets/images/scripts/c5.jpg', type: 'image' }
+        ]
+      },
+      {
+        label: '综艺 & 网络剧策划',
+        items: [
+          { title: '《再见 朋友》策划案', desc: '综艺节目完整策划方案 · 33MB', src: 'https://zhangkaili.xyz/assets/docs/《再见 朋友》策划案22.pptx', type: 'doc', icon: '📚' },
+          { title: '网络剧策划《偷命》', desc: '网络剧完整策划方案 · 14MB', src: 'https://zhangkaili.xyz/assets/docs/网络剧策划《偷命》.pptx', type: 'doc', icon: '🎬' }
+        ]
+      }
     ]
   }
 };
