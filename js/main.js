@@ -47,18 +47,7 @@
       </a>`;
   }).join('');
 
-  // Hover effect: play video on category card thumbnails
-  grid.querySelectorAll('.category-card').forEach(card => {
-    const video = card.querySelector('video');
-    if (!video) return;
-    card.addEventListener('mouseenter', function() {
-      video.currentTime = 0;
-      video.play().catch(function() {});
-    });
-    card.addEventListener('mouseleave', function() {
-      video.pause();
-    });
-  });
+  // Hover autoplay removed (Option A): cards show first frame only; video plays on click.
 })();
 
 /* ========== Hero Particles ========== */
