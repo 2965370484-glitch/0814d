@@ -35,7 +35,7 @@
       </div>` : '';
 
     return `
-      <a class="category-card" href="category.html?type=${cat.id}&from=works">
+      <a class="category-card reveal" href="category.html?type=${cat.id}&from=works">
         ${getThumbHTML(cat)}
         <div class="category-card-body">
           <div class="cat-icon">${cat.icon}</div>
@@ -85,7 +85,7 @@
   const nav = document.getElementById('nav');
   if (!nav) return;
   window.addEventListener('scroll', function() {
-    nav.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.3)' : 'none';
+    nav.classList.toggle('scrolled', window.scrollY > 50);
   });
 })();
 
@@ -114,3 +114,60 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     }
   });
 });
+
+/* ========== Scrollspy (nav highlight) ========== */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var sections = links
+    .map(function (a) { var h = a.getAttribute('href'); return (h && h.charAt(0) === '#') ? document.querySelector(h) : null; })
+    .filter(Boolean);
+  if (!sections.length) return;
+  function spy() {
+    var pos = window.scrollY + 140;
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.offsetTop <= pos) current = s; });
+    links.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+    });
+  }
+  window.addEventListener('scroll', spy, { passive: true });
+  spy();
+})();
+
+/* ========== Back to top ========== */
+(function () {
+  var btn = document.getElementById('toTop');
+  if (!btn) return;
+  window.addEventListener('scroll', function () {
+    btn.classList.toggle('show', window.scrollY > 420);
+  }, { passive: true });
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+
+/* ========== Remember homepage scroll position before entering a subpage ========== */
+document.addEventListener('click', function (e) {
+  var a = e.target.closest('a[href*="category.html"]');
+  if (!a) return;
+  var href = a.getAttribute('href') || '';
+  var fromHero = /[?&]from=hero\b/.test(href);
+  // 从 hero 标签进入 → 回到首页顶部；从作品卡片进入 → 记住当前滚动位置
+  sessionStorage.setItem('portfolioHomeScroll', fromHero ? 0 : Math.round(window.scrollY));
+});
+
+/* ========== Restore homepage scroll position when returning from a subpage ========== */
+(function () {
+  var key = 'portfolioHomeScroll';
+  var raw = sessionStorage.getItem(key);
+  if (raw === null) return;
+  var y = parseInt(raw, 10) || 0;
+  sessionStorage.removeItem(key);
+  var html = document.documentElement;
+  var prev = html.style.scrollBehavior;
+  html.style.scrollBehavior = 'auto';
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      window.scrollTo(0, y);
+      html.style.scrollBehavior = prev;
+    });
+  });
+})();
