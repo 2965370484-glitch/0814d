@@ -146,7 +146,7 @@ function renderItem(item, id) {
     return `
       <div class="cat-item-card reveal" data-lightbox="video" data-src="${item.src}" data-title="${item.title}" data-desc="${item.desc}" data-group="${item.group || ''}" data-id="${id}">
         <div class="cat-item-thumb">
-          <video src="${item.src}" preload="metadata" muted loop playsinline></video>
+          <img src="${item.poster}" alt="${item.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=thumb-icon>&#127916;</span>';">
         </div>
         <div class="cat-item-info">
           <h4>${item.title}</h4>
