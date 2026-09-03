@@ -17,20 +17,20 @@ const portfolioData = {
       {
         label: '动漫漫剪 & 游戏切片',
         items: [
-          { title: '狐妖小红娘漫剪', desc: '单条播放 30万+ · 动漫推广向剪辑全案', src: 'https://zhangkaili.xyz/assets/videos/狐妖漫剪.mp4', type: 'video' },
-          { title: '竹业漫剪', desc: '动漫 IP 混剪创作', src: 'https://zhangkaili.xyz/assets/videos/竹业漫剪.mp4', type: 'video' },
-          { title: '世界之外混剪', desc: '游戏向混剪创作', src: 'https://zhangkaili.xyz/assets/videos/世界之外混剪.mp4', type: 'video' },
-          { title: '游戏切片', desc: '游戏高光切片', src: 'https://zhangkaili.xyz/assets/videos/游戏切片.mp4', type: 'video' },
-          { title: '真人舞台切片', desc: '舞台表演切片', src: 'https://zhangkaili.xyz/assets/videos/真人舞台切片.mp4', type: 'video' }
+          { title: '狐妖小红娘漫剪', desc: '单条播放 30万+ · 动漫推广向剪辑全案', src: 'https://zhangkaili.xyz/assets/videos/狐妖漫剪.mp4', poster: 'assets/thumbnails/huyao.jpg', type: 'video' },
+          { title: '竹业漫剪', desc: '动漫 IP 混剪创作', src: 'https://zhangkaili.xyz/assets/videos/竹业漫剪.mp4', poster: 'assets/thumbnails/zhuye.jpg', type: 'video' },
+          { title: '世界之外混剪', desc: '游戏向混剪创作', src: 'https://zhangkaili.xyz/assets/videos/世界之外混剪.mp4', poster: 'assets/thumbnails/shijie.jpg', type: 'video' },
+          { title: '游戏切片', desc: '游戏高光切片', src: 'https://zhangkaili.xyz/assets/videos/游戏切片.mp4', poster: 'assets/thumbnails/youxi.jpg', type: 'video' },
+          { title: '真人舞台切片', desc: '舞台表演切片', src: 'https://zhangkaili.xyz/assets/videos/真人舞台切片.mp4', poster: 'assets/thumbnails/wutai.jpg', type: 'video' }
         ]
       },
       {
         label: '游戏营销短视频',
         items: [
-          { title: '世外营销', desc: '游戏营销短视频', src: 'https://zhangkaili.xyz/assets/videos/世外营销.mp4', type: 'video' },
-          { title: '世外营销 2', desc: '游戏营销短视频', src: 'https://zhangkaili.xyz/assets/videos/世外营销2.mp4', type: 'video' },
-          { title: '世外营销 3', desc: '游戏营销短视频', src: 'https://zhangkaili.xyz/assets/videos/世外营销3.mp4', type: 'video' },
-          { title: 'BW 合作推广', desc: 'BilibiliWorld 品牌合作推广', src: 'https://zhangkaili.xyz/assets/videos/bw合作推广.mp4', type: 'video' }
+          { title: '世外营销', desc: '游戏营销短视频', src: 'https://zhangkaili.xyz/assets/videos/世外营销.mp4', poster: 'assets/thumbnails/shiwai1.jpg', type: 'video' },
+          { title: '世外营销 2', desc: '游戏营销短视频', src: 'https://zhangkaili.xyz/assets/videos/世外营销2.mp4', poster: 'assets/thumbnails/shiwai2.jpg', type: 'video' },
+          { title: '世外营销 3', desc: '游戏营销短视频', src: 'https://zhangkaili.xyz/assets/videos/世外营销3.mp4', poster: 'assets/thumbnails/shiwai3.jpg', type: 'video' },
+          { title: 'BW 合作推广', desc: 'BilibiliWorld 品牌合作推广', src: 'https://zhangkaili.xyz/assets/videos/bw合作推广.mp4', poster: 'assets/thumbnails/bw.jpg', type: 'video' }
         ]
       },
       {
@@ -110,12 +110,12 @@ const portfolioData = {
       {
         label: '实习视频作品',
         items: [
-          { title: '开场视频', desc: '英雄游戏实习开场视频作品', src: 'assets/videos/intern/开场5.mp4', type: 'video' },
-          { title: '3月16日作品', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/3月16日 (5).mp4', type: 'video' },
-          { title: '1月12日作品', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/1月12日 (2)(1) (1) (1).mp4', type: 'video' },
-          { title: '4月9日作品', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/4月9日.mp4', type: 'video' },
-          { title: '4月10日作品', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/4月10日(1).mp4', type: 'video' },
-          { title: '专辑封面挑战', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/专辑封面挑战 (1).mp4', type: 'video' }
+          { title: '开场视频', desc: '英雄游戏实习开场视频作品', src: 'assets/videos/intern/开场5.mp4', poster: 'assets/thumbnails/kaichang.jpg', type: 'video' },
+          { title: '3月16日作品', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/3月16日 (5).mp4', poster: 'assets/thumbnails/3yue16.jpg', type: 'video' },
+          { title: '1月12日作品', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/1月12日 (2)(1) (1) (1).mp4', poster: 'assets/thumbnails/1yue12.jpg', type: 'video' },
+          { title: '4月9日作品', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/4月9日.mp4', poster: 'assets/thumbnails/4yue9.jpg', type: 'video' },
+          { title: '4月10日作品', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/4月10日(1).mp4', poster: 'assets/thumbnails/4yue10.jpg', type: 'video' },
+          { title: '专辑封面挑战', desc: '实习期间视频作品', src: 'https://zhangkaili.xyz/assets/videos/intern/专辑封面挑战 (1).mp4', poster: 'assets/thumbnails/zjfm.jpg', type: 'video' }
         ]
       }
     ]
