@@ -145,15 +145,15 @@ const portfolioData = {
     ]
   },
 
-  /* 4. 其他作品（弱相关，弱化收纳） */
+  /* 4. 文字作品（分镜头、小说剧本、同人创作等） */
   others: {
     id: 'others',
-    name: '其他作品',
+    name: '文字作品',
     icon: '✨',
-    desc: '分镜头脚本、小说剧本、综艺 / 网络剧策划等延伸创作。',
+    desc: '分镜头脚本、小说剧本、同人创作与综艺 / 网络剧策划等文字创作。',
     featured: {
-      title: '分镜头 & 小说剧本',
-      desc: '3张分镜头 + 5页小说剧本 + 综艺/网络剧策划',
+      title: '分镜头脚本 & 小说剧本 & 同人创作',
+      desc: '微电影分镜头脚本、原创小说剧本与同人创作',
       type: 'image',
       src: 'assets/images/storyboard/s1.png',
       thumb: ''
@@ -162,9 +162,8 @@ const portfolioData = {
       {
         label: '分镜头脚本',
         items: [
-          { title: '分镜头脚本 1', desc: '原创分镜头设计', src: 'assets/images/storyboard/s1.png', type: 'image' },
-          { title: '分镜头脚本 2', desc: '原创分镜头设计', src: 'assets/images/storyboard/s2.png', type: 'image' },
-          { title: '分镜头脚本 3', desc: '原创分镜头设计', src: 'assets/images/storyboard/s3.png', type: 'image' }
+          { title: '《勇气》微电影分镜头脚本', desc: '微电影分镜头脚本', src: 'assets/html/《勇气》微电影分镜头脚本.html', type: 'html', icon: '🎬' },
+          { title: '《破茧》微电影分镜头脚本', desc: '微电影分镜头脚本', src: 'assets/html/《破茧》微电影分镜头脚本.html', type: 'html', icon: '🎬' }
         ]
       },
       {
@@ -172,9 +171,18 @@ const portfolioData = {
         items: [
           { title: '小说剧本 1', desc: '原创小说剧本页', src: 'assets/images/scripts/c1.jpg', type: 'image' },
           { title: '小说剧本 2', desc: '原创小说剧本页', src: 'assets/images/scripts/c2.jpg', type: 'image' },
-          { title: '小说剧本 3', desc: '原创小说剧本页', src: 'assets/images/scripts/小说剧本pp5.jpg', type: 'image' },
-          { title: '小说剧本 4', desc: '原创小说剧本页', src: 'assets/images/scripts/小说剧本p5.jpg', type: 'image' },
-          { title: '小说剧本 5', desc: '原创小说剧本页', src: 'assets/images/scripts/c5.jpg', type: 'image' }
+          { title: '小说剧本 3', desc: '原创小说剧本页', src: 'assets/images/scripts/c5.jpg', type: 'image' }
+        ]
+      },
+      {
+        label: '同人创作',
+        items: [
+          { title: '（影日）吃醋小日常', desc: '同人创作 · 影日', src: 'assets/html/（影日）吃醋小日常.html', type: 'html', icon: '📖' },
+          { title: '（影日）时空错乱梗', desc: '同人创作 · 影日', src: 'assets/html/（影日）时空错乱梗.html', type: 'html', icon: '📖' },
+          { title: '（影日）重逢', desc: '同人创作 · 影日', src: 'assets/html/（影日）重逢.html', type: 'html', icon: '📖' },
+          { title: '（月山）依靠', desc: '同人创作 · 月山', src: 'assets/html/（月山）依靠.html', type: 'html', icon: '📖' },
+          { title: '（樂）个人向2', desc: '同人创作 · 个人向', src: 'assets/html/（樂）个人向2.html', type: 'html', icon: '📖' },
+          { title: '（樂）个人向日常', desc: '同人创作 · 个人向', src: 'assets/html/（樂）个人向日常.html', type: 'html', icon: '📖' }
         ]
       },
       {
