@@ -178,6 +178,16 @@ function renderItem(item, id) {
       </a>`;
   }
 
+  if (item.type === 'html') {
+    return `
+      <a class="cat-doc-card reveal" href="${item.src}" target="_blank" rel="noopener">
+        <div class="doc-icon">${item.icon || '&#128196;'}</div>
+        <h4>${item.title}</h4>
+        <p>${item.desc}</p>
+        <span class="doc-type">在线查看</span>
+      </a>`;
+  }
+
   if (item.type === 'gallery') {
     const gid = 'gallery-' + (++galleryIdCounter);
     galleryRegistry[gid] = { images: item.gallery, viewMode: item.viewMode || 'slideshow' };
